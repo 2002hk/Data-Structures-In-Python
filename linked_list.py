@@ -138,7 +138,42 @@ class LinkedList:
             pos=pos+1
         return 'Index Error'
 
-# Making First Linked List Object
+    # function to replace a value with the maximum value present in the list
+    def replace_max(self,value):
+        curr=self.head
+        max=curr
+        while curr!=None:
+            if curr.data>max.data:
+                max=curr
+            curr=curr.next
+        max.data=value
+
+    # sum of nodes in the odd position
+    def sum_odd_pos(self):
+        curr=self.head
+        pos=0
+        result=0
+        while curr!=None:
+            if pos%2!=0:
+                result=result+curr.data
+            curr=curr.next
+            pos=pos+1
+        print(result)
+
+    # reverse a linked list
+    def reverse(self):
+        prev_node=None
+        curr=self.head
+        while curr!=None:
+            next_node=curr.next
+            curr.next=prev_node
+            prev_node=curr
+            curr=next_node
+        self.head=prev_node
+
+
+
+'''# Making First Linked List Object
 L=LinkedList()
 a=Node(1)       #a is an object of class node we can access both attributes data and next
 L.insert_head(1)
@@ -151,4 +186,4 @@ L.insert_head(4)
 #L.insert_after(3,30)
 L.traverse()
 L.pop()
-L.traverse()
+L.traverse()'''
